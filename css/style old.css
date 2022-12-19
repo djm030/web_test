@@ -15,17 +15,16 @@ ul {
 
 body {
   font-family: "Poppins", sans-serif;
-  
-  padding-top: 40px;
+  color: black;
 }
 
 a {
   text-decoration: none;
-
+  color: black;
 }
 
 a:hover {
-
+  color: black;
   text-decoration: none;
 }
 
@@ -38,7 +37,9 @@ h6 {
   font-family: "Satisfy", sans-serif;
 }
 
-
+h1{
+  color: white;
+}
 input,
 select,
 textarea {
@@ -98,10 +99,6 @@ textarea {
   background: rgba(26, 24, 22, 0.85);
 }
 
-#logo{
-  max-height: 40px;
-}
-
 #header .logo h1 {
   font-size: 28px;
   margin: 0;
@@ -110,12 +107,24 @@ textarea {
   letter-spacing: 3px;
 }
 
+#header .logo h1 a,
+#header .logo h1 a:hover {
+  color: #fff;
+  text-decoration: none;
+}
 
 #header .logo img {
   padding: 0;
   margin: 0;
   max-height: 40px;
 }
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/**
+* Desktop Navigation 
+*/
 .navbar {
   padding: 0;
 }
@@ -144,10 +153,6 @@ textarea {
   white-space: nowrap;
   transition: 0.3s;
 }
-.navbar-toggler{
-  background-color: #fff;
-}
-
 
 .navbar a i,
 .navbar a:focus i {
@@ -162,9 +167,123 @@ textarea {
 .navbar li:hover > a {
   color: #ffb03b;
 }
-.custom-toggler.navbar-toggler {
-  border-color: rgb(255,102,203);
-} 
+
+@media (max-width: 1366px) {
+  .navbar .dropdown .dropdown ul {
+    left: -90%;
+  }
+
+  .navbar .dropdown .dropdown:hover > ul {
+    left: -100%;
+  }
+}
+
+/**
+* Mobile Navigation 
+*/
+.mobile-nav-toggle {
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  display: none;
+  line-height: 0;
+  transition: 0.5s;
+}
+
+@media (max-width: 991px) {
+  .mobile-nav-toggle {
+    display: block;
+  }
+
+  .navbar ul {
+    display: none;
+  }
+}
+
+.navbar-mobile {
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(39, 37, 34, 0.9);
+  transition: 0.3s;
+  z-index: 0;
+}
+
+.navbar-mobile .mobile-nav-toggle {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.navbar-mobile ul {
+  display: block;
+  position: absolute;
+  top: 55px;
+  right: 15px;
+  bottom: 15px;
+  left: 15px;
+  padding: 10px 0;
+  border-radius: 8px;
+  background-color: #fff;
+  overflow-y: auto;
+  transition: 0.3s;
+}
+
+.navbar-mobile a,
+.navbar-mobile a:focus {
+  padding: 10px 20px;
+  font-size: 15px;
+  color: #433f39;
+}
+
+.navbar-mobile a:hover,
+.navbar-mobile .active,
+.navbar-mobile li:hover > a {
+  color: #ffb03b;
+}
+
+.navbar-mobile .getstarted,
+.navbar-mobile .getstarted:focus {
+  margin: 15px;
+}
+
+.navbar-mobile .dropdown ul {
+  position: static;
+  display: none;
+  margin: 10px 20px;
+  padding: 10px 0;
+  z-index: 99;
+  opacity: 1;
+  visibility: visible;
+  background: #fff;
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+}
+
+.navbar-mobile .dropdown ul li {
+  min-width: 200px;
+}
+
+.navbar-mobile .dropdown ul a {
+  padding: 10px 20px;
+}
+
+.navbar-mobile .dropdown ul a i {
+  font-size: 12px;
+}
+
+.navbar-mobile .dropdown ul a:hover,
+.navbar-mobile .dropdown ul .active:hover,
+.navbar-mobile .dropdown ul li:hover > a {
+  color: #ffb03b;
+}
+
+.navbar-mobile .dropdown > .dropdown-active {
+  display: block;
+}
+
 /*--------------------------------------------------------------
 # SlideShow
 --------------------------------------------------------------*/
@@ -185,85 +304,56 @@ textarea {
 # introducion_list
 --------------------------------------------------------------*/
 
-#introduction{
-
-  padding-top: 100px;
-
+.introducion{
+  width: 100%;
+  max-height: 300px;
 }
 
 
 /*--------------------------------------------------------------
 # cake_list
 --------------------------------------------------------------*/
-#cake_list{
-  padding-top: 80px;
-  margin-bottom: 300px;
-}
 
-.cake_container{
-  padding: 20px;
-}
 
-.cake_container>p {
-  text-align: center;
- 
-  width: 100%;
-
-}
-.cakename{
-  padding: 3%;
+#cake_list
+{
+  padding-top: 70px;
+  padding-bottom: 80px;
 }
 .cake {
-  width: 100%;
-  height: 100%;
+  width: 250px;
 }
-
-.cakemenu {
-  width: 100%;
-  position: relative;
-
+.cakename {
+  padding: 10px;
+  
 }
-
+.cakenum{
+  background-color: #433f39;
+  
+}
 .cakeinfo {
   position: absolute;
-  width: 100%;
-  height: 100%;
   opacity: 0;
-  top: 0;
-  left: 0;
-  line-height: 30px;
-  font-size: large;
-  /* display: inline; /
-  vertical-align: middle;
-  text-align: center;
-  / transform: translate(0, -150%); */
-  padding-top: 100px;
+  transform: translate(3vw, -150%);
+  
 }
-
+/* 글씨 조정 */
 .cakemenu:hover .cakeinfo {
-  opacity: 0.6;
-  background-color: rgb(44, 41, 41);
+  opacity: 0.3;
+  background-color: black;
   color: white;
 }
-
-
-.cakename > p {
-  font-size: 1.2rem;
-  font-family: "Poppins", sans-serif;
+/* 마우스 올라가면 글씨 보임 */
+.cakeinfo {
+  width: 250px;
 }
-.form-check-label{
-  font-size: 1.2rem;
-  font-family: "Poppins", sans-serif;
-}
+/* #cake_value_chk:focus .cakename{
+  border: 2px solid #433f39  ;
+
+} */
 /*--------------------------------------------------------------
 # BottomBar
 --------------------------------------------------------------*/
-
-
-#map{
-  width: 100%;
-  height: 100%;
-}
 
 #bottombar {
   z-index: 997;
@@ -290,15 +380,4 @@ textarea {
   float: right;
   text-align: left;
   color: white ;
-}
-#info>p{
-  color: #fff;
-}
-#forminfo{
-  width: 100%;
-}
-
- input{
-  padding: 0;
-  border-width: 0;
 }
